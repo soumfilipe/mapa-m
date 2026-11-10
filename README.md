@@ -6,7 +6,7 @@ Site estático (HTML, CSS e JS puros, sem dependências nem build).
 
 ## Publicar no GitHub Pages
 
-1. Crie um repositório (ex.: `mapa-leninismo`) e envie estes arquivos na raiz: `index.html`, `style.css`, `app.js`, `data.js`, `data-marx.js`, `README.md`.
+1. Crie um repositório (ex.: `mapa-leninismo`) e envie estes arquivos na raiz: `index.html`, `style.css`, `app.js`, `data.js`, `data-marx.js`, `data-bakunin.js`, `README.md`.
 2. No repositório: **Settings → Pages → Build and deployment**.
 3. Em *Source*, escolha **Deploy from a branch**, branch `main`, pasta `/ (root)`, e salve.
 4. Em um ou dois minutos o site abre em `https://SEU-USUARIO.github.io/mapa-leninismo/`.
@@ -39,17 +39,21 @@ Autores, movimentos e eventos não têm eixo (são círculos).
 
 O chip **Destacar Marx e Engels** ilumina esse núcleo no mapa.
 
+## Contraponto: Bakunin
+
+`data-bakunin.js` é propositalmente enxuto (10 pontos). O foco do mapa é a linha marxista; o anarquismo entra para marcar onde e por que diverge de Marx, Engels e Lenin: Estado como dominação em si versus Estado de classe, abolição imediata versus extinção gradual, previsão da "nova classe" dirigente, antiparlamentarismo, federalismo, o Congresso de Haia (1872), Kronstadt (1921) e o anarcossindicalismo no Brasil. Veja o debate "Marxismo e anarquismo: o que separa?".
+
 ## Como usar
 
 - **Rede**: pontos ligados por relações. Clique em um ponto para ver o resumo, o eixo e todas as conexões.
 - **Linha do tempo**: uma faixa por tipo, ordenado pelo ano do marco principal.
-- **Debates**: 13 disputas com posições lado a lado; "Destacar no mapa" ilumina os nós envolvidos.
+- **Debates**: 14 disputas com posições lado a lado; "Destacar no mapa" ilumina os nós envolvidos.
 - **Busca**: digite um termo e pressione Enter para abrir o primeiro resultado.
 - **Links diretos**: `...#c-quebrar` abre selecionado; `?modo=tempo` e `?modo=eixos` abrem em cada visualização.
 
 ## Como ampliar
 
-Núcleo leninista em `data.js`; Marx, Engels e eixos em `data-marx.js`.
+Núcleo leninista em `data.js`; Marx, Engels e eixos em `data-marx.js`; contraponto anarquista em `data-bakunin.js`.
 
 ```js
 // nó: [id, tipo, rótulo, ano, resumo, brasil(1/0)]
