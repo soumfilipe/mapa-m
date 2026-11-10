@@ -16,7 +16,7 @@
   /* ---------------- dados ---------------- */
   const EIX = D.eixos || {};
   const nodes = D.nodes.map(([id, type, label, year, summary, br]) => ({
-    id, type, label, year, summary, br: !!br, eixo: EIX[id] || "",
+    id, type, label, year, summary, br: !!br, eixo: EIX[id] || "", partido: (D.partidos||{})[id] || null,
     x: 0, y: 0, vx: 0, vy: 0, deg: 0, visible: true, fixed: false
   }));
   const byId = new Map(nodes.map((n) => [n.id, n]));
@@ -30,7 +30,7 @@
 
   const state = {
     mode: "rede", hiddenTypes: new Set(), hiddenKinds: new Set(), hiddenEixos: new Set(),
-    br: false, marx: false, sel: null, debate: null, q: ""
+    br: false, marx: false, part: false, sel: null, debate: null, q: ""
   };
 
   /* ---------------- posições iniciais ---------------- */
@@ -308,9 +308,10 @@
       const q = norm(state.q);
       fs = new Set(nodes.filter((n) => norm(n.label + " " + n.summary).includes(q)).map((n) => n.id));
       mode = "set";
-    } else if (state.br || state.marx) {
+    } else if (state.br || state.marx || state.part) {
       fs = new Set();
       if (state.br) nodes.forEach((n) => { if (n.br) fs.add(n.id); });
+      if (state.part) (D.partidoIds || []).forEach((id) => fs.add(id));
       if (state.marx) (D.marxIds || []).forEach((id) => fs.add(id));
       mode = "set";
     }
@@ -397,8 +398,10 @@
     let html = "<span class=\"pill type\" style=\"background:" + type.color + "\">" + esc(type.label) + "</span>" +
       "<span class=\"pill\">" + esc(n.year) + "</span>" + (n.br ? "<span class=\"pill br\">Brasil</span>" : "") +
       (n.eixo ? "<span class=\"pill eixo " + n.eixo + "\">" + esc(D.eixoInfo[n.eixo].label) + "</span>" : "") +
+      (n.partido ? "<span class=\"pill eixo\">" + esc(D.formasPartido[n.partido.forma]) + "</span>" : "") +
       "<h2>" + esc(n.label) + "</h2><p class=\"lead\">" + esc(n.summary) + "</p>" +
-      (n.eixo ? "<p class=\"eixonote\"><b>Eixo: " + esc(D.eixoInfo[n.eixo].label) + ".</b> " + esc(D.eixoInfo[n.eixo].desc) + "</p>" : "");
+      (n.eixo ? "<p class=\"eixonote\"><b>Eixo: " + esc(D.eixoInfo[n.eixo].label) + ".</b> " + esc(D.eixoInfo[n.eixo].desc) + "</p>" : "") +
+      (n.partido ? "<p class=\"eixonote\"><b>Partido e teoria.</b> " + esc(n.partido.nota) + "</p>" : "");
     const titles = { critica: "Discordâncias e críticas", complementa: "Complementos e atualizações", fundamenta: "Da análise à estratégia", infl: "Influências", trata: "Conceitos e obras", contexto: "Contexto histórico", autor: "Autoria" };
     kindOrder.forEach((k) => {
       const list = groups[k]; if (!list) return;
@@ -472,6 +475,8 @@
       "<p><b>Como ler.</b> Cada ponto é um conceito, obra, autor, movimento ou evento. Linhas tracejadas vermelhas mostram críticas e discordâncias. Pontos com borda rosa são brasileiros. O tamanho do ponto cresce com o número de conexões.</p>" +
       "<p><b>Linha do tempo.</b> O ano de cada ponto é o marco principal (obra, fundação ou formulação), e não o nascimento.</p>" +
       "<p><b>Aviso.</b> Os resumos são apoio de estudo. Datas, atribuições e interpretações precisam ser conferidas nas fontes primárias antes de uso público. Relações marcadas como “leitura interpretativa” são hipóteses, não consensos.</p>" +
+      "<p><b>Origens das críticas.</b> Hegel, Feuerbach, Smith, Ricardo, os utópicos, Proudhon e Lassalle aparecem como alvos ou fontes de Marx. O debate <i>De onde vêm as críticas de Marx?</i> reúne o conjunto.</p>" +
+      "<p><b>Partidos e correntes.</b> Muitos partidos brasileiros são de correntes ou de frente, e a teoria marxista costuma estar em alas, e não no partido inteiro. O chip <i>Destacar partidos</i> mostra o conjunto. As classificações vêm de fontes públicas e das autodescrições dos grupos; confira antes de usar.</p>" +
       "<p><b>Para ler os textos.</b> O acervo em português do <a href=\"https://www.marxists.org/portugues/\" target=\"_blank\" rel=\"noopener\">Marxists Internet Archive</a> reúne muitas das obras citadas; edições recentes saem por editoras como Boitempo e Expressão Popular.</p>" +
       "<p><b>Para ampliar.</b> Edite <code>data.js</code> (núcleo leninista) e <code>data-marx.js</code> (Marx, Engels e a classificação por eixos): acrescente nós e relações e o mapa se reorganiza sozinho.</p></div>";
   }
@@ -510,6 +515,9 @@
     const s2 = document.createElement("span"); s2.className = "sep"; bar.appendChild(s2);
     mk("br", "Destacar Marx e Engels", (b) => {
       state.marx = !state.marx; b.classList.toggle("on", state.marx); applyFocus();
+    });
+    mk("br", "Destacar partidos", (b) => {
+      state.part = !state.part; b.classList.toggle("on", state.part); applyFocus();
     });
     mk("br", "Destacar Brasil", (b) => {
       state.br = !state.br; b.classList.toggle("on", state.br); applyFocus();
