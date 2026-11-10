@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mapa do Leninismo e suas correntes</title>
+  <meta name="description" content="Mapa interativo de conceitos, obras, autores e movimentos ligados à teoria leninista da revolução, com debates e leitura para o Brasil.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <h1>Mapa do Leninismo</h1>
+      <p>conceitos · obras · autores · movimentos · debates</p>
+    </div>
+    <div class="tools">
+      <input id="q" type="search" placeholder="Buscar (ex.: Estado, Gramsci, dependência)" autocomplete="off" aria-label="Buscar no mapa">
+      <div class="seg" role="group" aria-label="Modo de visualização">
+        <button id="m-rede" class="on" type="button">Rede</button>
+        <button id="m-tempo" type="button">Linha do tempo</button>
+        <button id="m-eixos" type="button">Análise × Estratégia</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="bar" id="bar" aria-label="Filtros"></nav>
+
+  <main>
+    <section id="stage">
+      <svg id="svg" role="img" aria-label="Mapa interativo">
+        <g id="vp">
+          <g id="axis"></g>
+          <g id="edges"></g>
+          <g id="nodes"></g>
+        </g>
+      </svg>
+      <div id="banner" hidden></div>
+      <div class="zoom">
+        <button id="z-in" type="button" aria-label="Aproximar">+</button>
+        <button id="z-out" type="button" aria-label="Afastar">−</button>
+        <button id="z-fit" type="button" aria-label="Centralizar">⌖</button>
+      </div>
+    </section>
+
+    <aside id="panel">
+      <div class="tabs" role="tablist">
+        <button data-tab="detalhe" class="on" role="tab">Detalhes</button>
+        <button data-tab="debates" role="tab">Debates</button>
+        <button data-tab="sobre" role="tab">Sobre</button>
+      </div>
+      <div id="tab-detalhe" class="tab on"></div>
+      <div id="tab-debates" class="tab"></div>
+      <div id="tab-sobre" class="tab"></div>
+    </aside>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="data-marx.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
