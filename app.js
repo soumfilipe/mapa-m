@@ -404,7 +404,7 @@
       n.docs.forEach(([, d]) => {
         const t = /^https?:/.test(d.url) ? "<a href=\"" + esc(d.url) + "\" target=\"_blank\" rel=\"noopener\">" + esc(d.titulo) + "</a>" : esc(d.titulo);
         h += "<li>" + t + " <span class=\"note\">" + esc(d.data) + " · " + esc(d.tipo) + " · " + esc(NV[d.nivel]) +
-          " · <span class=\"st " + d.status + "\">" + esc(ST[d.status]) + "</span>" + (/^https?:/.test(d.url) ? "" : " · " + esc(d.url)) + (d.obs ? "<br>" + esc(d.obs) : "") + "</span></li>";
+          " · <span class=\"st " + d.status + "\">" + esc(ST[d.status]) + "</span>" + (d.interno ? " · documento interno, sem link público" : "") + (/^https?:/.test(d.url) ? "" : " · " + esc(d.url)) + (d.obs ? "<br>" + esc(d.obs) : "") + "</span></li>";
       });
       h += "</ul>";
     }

@@ -38,7 +38,7 @@
     ["g-pcbr","group","PCBR (atual)",2024,"Nome adotado em 2024 (XVII Congresso Extraordinário) pelo grupo antes chamado PCB-RR (Reconstrução Revolucionária), resultado de cisão recente do PCB. Segundo seu comunicado, reivindica a continuidade histórica do PCB de 1922 e declara ruptura com o reformismo; diz não refundar o PCBR de 1968. A outra fração mantém a sigla eleitoral do PCB, e as versões da disputa divergem.",1],
 
     /* alas e correntes internas */
-    ["g-ds","group","Democracia Socialista (ala do PT)",1980,"Tendência marxista organizada dentro do PT, ligada à IV Internacional. Ano aproximado (o da fundação do PT). Exemplo de ala que produz teoria dentro de um partido de linha majoritariamente eleitoral.",1],
+    ["g-ds","group","Democracia Socialista (ala do PT)",1980,"Tendência organizada dentro do PT, de matriz marxista e, segundo a Wikipédia, ligada à IV Internacional (a resolução de 2026 fala em socialismo democrático e não a cita). Ano aproximado (o da fundação do PT). Exemplo de ala que produz teoria dentro de um partido de linha majoritariamente eleitoral.",1],
     ["g-mes","group","MES (ala do PSOL)",2004,"Movimento Esquerda Socialista. Corrente do PSOL com orientação trotskista e morenista; IV Internacional (reunificada), segundo a Wikipédia. Ano aproximado (o do partido).",1],
     ["g-insurg","group","Insurgência (ala do PSOL)",2004,"Corrente do PSOL: trotskismo, mandelismo, ecossocialismo; IV Internacional (reunificada), segundo a Wikipédia. Ano aproximado (o do partido).",1],
     ["g-resist","group","Resistência (ala do PSOL)",2004,"Corrente do PSOL de orientação trotskista, segundo a Wikipédia. Ano aproximado (o do partido).",1],
@@ -59,7 +59,7 @@
     "g-pstu": { forma: "quadros", nota: "Partido de matriz trotskista, nascido da Convergência Socialista." },
     "g-pcbr": { forma: "quadros", nota: "Partido de matriz leninista que se apresenta como continuação histórica do PCB (1922). É um nome com a mesma sigla do PCBR de 1968, mas segundo seu comunicado de 2024 não é a mesma organização." },
     "g-pcbr68": { forma: "quadros", nota: "Combinou a concepção leninista de partido com a defesa da autonomia dos movimentos de massa, ideia associada a Luxemburgo (Della Vechia, 2005)." },
-    "g-ds": { forma: "ala", nota: "Corrente interna do PT. A teoria marxista do partido está sobretudo em alas como esta, e não na direção majoritária." },
+    "g-ds": { forma: "ala", nota: "Corrente interna do PT. Segundo a Wikipédia, ligada à IV Internacional; a resolução de 2026 trata o socialismo democrático como horizonte e não a cita. A teoria marxista do partido está sobretudo em alas como esta, e não na direção majoritária." },
     "g-mes": { forma: "ala", nota: "Corrente interna do PSOL, de matriz trotskista." },
     "g-insurg": { forma: "ala", nota: "Corrente interna do PSOL, de matriz trotskista e ecossocialista." },
     "g-resist": { forma: "ala", nota: "Corrente interna do PSOL, de matriz trotskista." },
@@ -84,7 +84,7 @@
     ["g-pt","g-psol","contexto","Fundado em 2004 por parlamentares expulsos do PT após votarem contra a reforma da previdência."],
     ["g-trot","g-psol","infl","Várias correntes trotskistas atuam no PSOL."],
     ["g-pt","g-ds","contexto","Tendência interna do PT."],
-    ["g-trot","g-ds","infl","Ligada à IV Internacional."],
+    ["g-trot","g-ds","infl","Segundo a Wikipédia, ligada à IV Internacional; o documento de 2026 não cita essa filiação."],
     ["g-psol","g-mes","contexto"],["g-psol","g-insurg","contexto"],["g-psol","g-resist","contexto"],
     ["g-psol","g-lsr","contexto"],["g-psol","g-primavera","contexto"],
     ["g-trot","g-mes","infl"],["g-trot","g-insurg","infl"],["g-trot","g-resist","infl"],["g-trot","g-lsr","infl"],

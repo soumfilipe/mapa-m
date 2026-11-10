@@ -84,16 +84,16 @@
      recebido    = link informado, ainda não lido nem parafraseado
      indisponivel= sem documento público (segundo Filipe) */
   const up = (id, o) => Object.assign(M.documentos[id], o);
-  M.documentos["d-psol-8c-int"] = doc("g-psol","8º Congresso: Resolução de Conjuntura Internacional (PDF)","2023","resolução de congresso",U+"psol50.org.br/wp-content/uploads/2023/09/Resolucao-de-Conjuntura-Internacional-aprovada.pdf","primario","recebido");
+  M.documentos["d-psol-8c-int"] = doc("g-psol","8º Congresso: Resolução de Conjuntura Internacional (PDF)","2023","resolução de congresso",U+"psol50.org.br/wp-content/uploads/2023/09/Resolucao-de-Conjuntura-Internacional-aprovada.pdf","primario","lido");
   M.documentos["d-pt-ae"] = doc("g-pt","Resolução do 8º Congresso sobre o PT e a AE","2026","resolução de congresso",U+"pagina13.org.br/resolucao-do-8o-congresso-sobre-o-pt-e-a-ae/","tendencia","coletar");
   up("d-pt-ae", { obs: "O link que Filipe informou repete o manifesto do PT; conferir." });
   M.documentos["d-pstu-plano"] = doc("g-pstu","Editorial: Por um plano econômico dos trabalhadores para o Brasil","—","editorial",U+"www.pstu.org.br/editorial-por-um-plano-economico-dos-trabalhadores-para-o-brasil/","primario","recebido");
   up("d-pstu-plano", { obs: "Segundo Filipe, indica o entendimento do partido até 2023; não são as teses programáticas." });
   up("d-pt-8c", { url: U+"pt.org.br/construindo-o-futuro-manifesto-do-pt-para-seguir-transformando-o-pais/", status: "recebido" });
-  up("d-ds-conf", { url: U+"democraciasocialista.org.br/wp-content/uploads/2026/05/ResolucaoXIVConfencia.pdf", status: "recebido" });
+  up("d-ds-conf", { url: U+"democraciasocialista.org.br/wp-content/uploads/2026/05/ResolucaoXIVConfencia.pdf", status: "lido", data: "2026 (maio)", obs: "PDF de 29 páginas lido por inteiro." });
   up("d-pcbr68-linha", { url: U+"emdefesadocomunismo.com.br/luta-armada-e-unidade-de-acao/", status: "recebido", obs: "Link informado com dúvida (“talvez seja este”): conferir se é a Linha Política de 1968." });
-  up("d-pcr-7c", { obs: "Filipe diz que a maior parte dos documentos do PCR não é pública; ele tem alguns e pode digitalizar." });
-  up("d-pcr-prog", { obs: "Filipe tem o documento e pode digitalizar." });
+  up("d-pcr-7c", { interno: true, obs: "Filipe diz que a maior parte dos documentos do PCR não é pública; ele tem alguns e pode digitalizar." });
+  up("d-pcr-prog", { interno: true, obs: "Filipe tem o documento e pode digitalizar." });
   up("d-pcb-cc24", { status: "indisponivel", obs: "Segundo Filipe, parece não haver documento público." });
   up("d-pstu-cong", { status: "indisponivel", obs: "Segundo Filipe, ainda não existe; está em pré-venda no site da editora." });
   up("d-pstu-teses", { obs: "Não localizadas por Filipe." });
@@ -113,6 +113,9 @@
       ["a","Critica a ortodoxia fiscal e o modelo desenvolvimentista, que considera anacrônico e alheio aos limites ecológicos.",["d-psol-prog"]],
       ["e","Coloca o socialismo como horizonte estratégico (democrático, ecossocialista, internacionalista) e reivindica independência política de classe, sem excluir unidade ampla.",["d-psol-prog"]],
       ["e","Apoiou Lula desde o 1º turno de 2022 e defende mobilização social permanente pelo programa eleito, com crítica ao marco fiscal.",["d-psol-8c","d-psol-dn23"]],
+      ["a","A resolução internacional de 2023 fala em crise estrutural do capitalismo, financeirização e digitalização, disputa entre EUA e China, e uma extrema direita com peso de massas, incluindo setores fascistas, apoiada na ampliação da superexploração do trabalho e dos recursos naturais.",["d-psol-8c-int"]],
+      ["e","Defende uma nova ordem mundial por mobilização dos povos, com perspectiva socialista; celebra a nova onda de governos de esquerda na América Latina, com a ressalva de que, sem apoio em mobilização e trabalho de base, podem alimentar frustração; participa da Internacional Progressista, Rede Futuro e Internacional Feminista.",["d-psol-8c-int"]],
+      ["a","Sobre a Ucrânia, vê agressão de Putin e ação provocadora da OTAN e defende paz sem anexações e sem sanções.",["d-psol-8c-int"]],
       ["a","O programa de 2004 critica as experiências do stalinismo e as capitulações da “3ª via” social-democrata.",["d-psol-2004"]]
     ],
     "g-mes": [
@@ -124,7 +127,12 @@
       ["e","Segundo a chamada do 8º Congresso, o manifesto propõe sete reformas, um novo pacto de desenvolvimento e concertação com a classe trabalhadora e com empresários “comprometidos com a nação”. Texto integral ainda por coletar.",["d-pt-8c"],"parcial"]
     ],
     "g-ds": [
-      ["e","Resolução da XIV Conferência diz que a tarefa é construir a vitória sobre a extrema-direita por um Brasil democrático e antineoliberal. Texto integral ainda por coletar.",["d-ds-conf"],"tendência, parcial"]
+      ["a","Descreve uma crise da ordem mundial neoliberal, com o governo Trump em intervenções neocoloniais na América Latina, e uma extrema direita neoliberal organizada em torno do bolsonarismo como “partido digital”, apoiado em redes e grande mídia. Fala em dupla crise do capitalismo neoliberal e da hegemonia dos EUA, com formas renovadas de fascismo.",["d-ds-conf"],"tendência"],
+      ["a","Propõe um conceito unitário de classes trabalhadoras, feminista e antirracista, que une trabalhadores urbanos e do campo, e trata o cuidado e o trabalho reprodutivo como centrais; fala em superexploração e crise ecológica por apropriação predatória dos bens naturais.",["d-ds-conf"],"tendência"],
+      ["e","Defende uma frente única democrática antineoliberal que hegemonize alianças com setores liberais contra a extrema direita, e a unidade das federações PT/PCdoB/PSB/PDT/PV com a PSOL/Rede.",["d-ds-conf"],"tendência"],
+      ["e","Programa de superação do neoliberalismo: soberania popular sobre o Banco Central, mudança do arcabouço fiscal, progressividade tributária, reforma do sistema político (voto em lista, paridade, orçamento participativo nacional) e alianças como Brics e Celac.",["d-ds-conf"],"tendência"],
+      ["e","Trata o socialismo democrático como horizonte que depende de vencer a batalha contra o neoliberalismo, e afirma que o PT deve preservar sua independência. Critica a pragmática de alianças conservadoras do PT desde 2010.",["d-ds-conf"],"tendência"],
+      ["a","O texto não cita Marx, a IV Internacional nem a revolução democrática; a ligação da DS com a IV Internacional segue em segunda mão.",["d-ds-conf"],"verificado no documento"]
     ],
     "g-pcdob": [
       ["a","Fala em crise sistêmica do capitalismo, cita Marx sobre a concentração e centralização do capital e Lenin sobre o desenvolvimento desigual; vê declínio relativo dos EUA e ascensão da China, que chama de socialista.",["d-pcdob-16c"]],
@@ -199,6 +207,8 @@
     ["g-pco","g-pcbr","critica","Acusa de fazer campanha pela frente ampla que diz denunciar. Fonte: órgão do PCO (polêmica de partido)."],
     ["g-psol","g-estal","critica","O programa de 2004 critica as experiências totalitárias dos regimes stalinistas. Fonte: PSOL (primária)."],
     ["g-psol","g-socdem","critica","O programa de 2004 critica as capitulações da terceira via social-democrata. Fonte: PSOL (primária)."],
+
+    ["g-ds","g-pt","critica","Critica a pragmática de alianças conservadoras do PT desde 2010, mas defende a independência do partido. Fonte: DS, XIV Conferência (tendência)."],
 
     /* reivindicações explícitas */
     ["p-marx","g-pcdob","infl","O PCdoB cita Marx sobre concentração e centralização do capital. Fonte: 16º Congresso (primária)."],
