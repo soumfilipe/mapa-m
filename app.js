@@ -379,7 +379,7 @@
 
   const kindOrder = ["critica", "complementa", "fundamenta", "infl", "trata", "contexto", "autor"];
   /* posições e documentos de um partido */
-  const ST = { lido: "lido", parcial: "lido em parte", coletar: "a coletar" };
+  const ST = { lido: "lido", parcial: "lido em parte", recebido: "link recebido, falta ler", coletar: "a coletar", indisponivel: "sem documento público" };
   const NV = { primario: "fonte primária", tendencia: "corrente interna", secundario: "segunda mão" };
   function posBlock(n) {
     if (!n.pos && !(n.docs && n.docs.length)) return "";
@@ -404,7 +404,7 @@
       n.docs.forEach(([, d]) => {
         const t = /^https?:/.test(d.url) ? "<a href=\"" + esc(d.url) + "\" target=\"_blank\" rel=\"noopener\">" + esc(d.titulo) + "</a>" : esc(d.titulo);
         h += "<li>" + t + " <span class=\"note\">" + esc(d.data) + " · " + esc(d.tipo) + " · " + esc(NV[d.nivel]) +
-          " · <span class=\"st " + d.status + "\">" + esc(ST[d.status]) + "</span>" + (/^https?:/.test(d.url) ? "" : " · " + esc(d.url)) + "</span></li>";
+          " · <span class=\"st " + d.status + "\">" + esc(ST[d.status]) + "</span>" + (/^https?:/.test(d.url) ? "" : " · " + esc(d.url)) + (d.obs ? "<br>" + esc(d.obs) : "") + "</span></li>";
       });
       h += "</ul>";
     }

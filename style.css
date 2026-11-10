@@ -150,3 +150,5 @@ h3{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute
 .st.parcial{color:#ffb86b}
 .st.coletar{color:#ff9a9a}
 .rel li a[title]{font-weight:600;margin-left:2px}
+.st.recebido{color:var(--accent)}
+.st.indisponivel{color:var(--muted)}

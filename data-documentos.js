@@ -80,12 +80,37 @@
     "d-pco-dco": doc("g-pco","Artigos do DCO contra PSTU e PCBR","2026","artigo do órgão oficial",U+"causaoperaria.org.br/2026/pcbr-denuncia-a-frente-ampla-e-termina-fazendo-campanha-por-ela/","primario","lido")
   };
 
+  /* ---------- atualizações a partir do CSV preenchido por Filipe (nov./2026) ----------
+     recebido    = link informado, ainda não lido nem parafraseado
+     indisponivel= sem documento público (segundo Filipe) */
+  const up = (id, o) => Object.assign(M.documentos[id], o);
+  M.documentos["d-psol-8c-int"] = doc("g-psol","8º Congresso: Resolução de Conjuntura Internacional (PDF)","2023","resolução de congresso",U+"psol50.org.br/wp-content/uploads/2023/09/Resolucao-de-Conjuntura-Internacional-aprovada.pdf","primario","recebido");
+  M.documentos["d-pt-ae"] = doc("g-pt","Resolução do 8º Congresso sobre o PT e a AE","2026","resolução de congresso",U+"pagina13.org.br/resolucao-do-8o-congresso-sobre-o-pt-e-a-ae/","tendencia","coletar");
+  up("d-pt-ae", { obs: "O link que Filipe informou repete o manifesto do PT; conferir." });
+  M.documentos["d-pstu-plano"] = doc("g-pstu","Editorial: Por um plano econômico dos trabalhadores para o Brasil","—","editorial",U+"www.pstu.org.br/editorial-por-um-plano-economico-dos-trabalhadores-para-o-brasil/","primario","recebido");
+  up("d-pstu-plano", { obs: "Segundo Filipe, indica o entendimento do partido até 2023; não são as teses programáticas." });
+  up("d-pt-8c", { url: U+"pt.org.br/construindo-o-futuro-manifesto-do-pt-para-seguir-transformando-o-pais/", status: "recebido" });
+  up("d-ds-conf", { url: U+"democraciasocialista.org.br/wp-content/uploads/2026/05/ResolucaoXIVConfencia.pdf", status: "recebido" });
+  up("d-pcbr68-linha", { url: U+"emdefesadocomunismo.com.br/luta-armada-e-unidade-de-acao/", status: "recebido", obs: "Link informado com dúvida (“talvez seja este”): conferir se é a Linha Política de 1968." });
+  up("d-pcr-7c", { obs: "Filipe diz que a maior parte dos documentos do PCR não é pública; ele tem alguns e pode digitalizar." });
+  up("d-pcr-prog", { obs: "Filipe tem o documento e pode digitalizar." });
+  up("d-pcb-cc24", { status: "indisponivel", obs: "Segundo Filipe, parece não haver documento público." });
+  up("d-pstu-cong", { status: "indisponivel", obs: "Segundo Filipe, ainda não existe; está em pré-venda no site da editora." });
+  up("d-pstu-teses", { obs: "Não localizadas por Filipe." });
+  up("d-pcdob-68", { status: "indisponivel", obs: "Não encontrado por Filipe." });
+  up("d-pco-12c", { status: "indisponivel", obs: "Não encontrado por Filipe." });
+  up("d-pco-trot", { url: U+"pco.org.br/o-que-e-trotskismo/", status: "recebido", obs: "A seção “O Trotskismo no Brasil” parece não existir mais." });
+  up("d-up-prog", { status: "lido", obs: "Filipe confirmou que a epígrafe cita Marx e Engels." });
+  up("d-psol-prog", { obs: "Filipe confirmou o uso de superexploração e as críticas à ortodoxia e ao desenvolvimentismo." });
+  up("d-psol-resol", { obs: "A ferramenta não abriu a página; o link informado não ajudou." });
+
   /* ---------- 2) o que cada partido afirma (paráfrase) ----------
      [eixo, texto, [ids de documentos], marca opcional] */
   M.posicoes = {
     "g-psol": [
       ["a","Descreve o Brasil como país erguido sobre escravismo e colonialismo, mantido na periferia do capitalismo por interesses monopolistas; vê o golpe de 2016 como reação das classes dominantes ao conflito distributivo.",["d-psol-prog"]],
-      ["a","Usa o termo “superexploração”, que lembra a teoria marxista da dependência, mas o documento não cita Marini.",["d-psol-prog"],"leitura interpretativa"],
+      ["a","Confirmado por Filipe: usa “superexploração”, o que lembra a teoria marxista da dependência, mas o documento não cita Marini.",["d-psol-prog"],"leitura interpretativa"],
+      ["a","Critica a ortodoxia fiscal e o modelo desenvolvimentista, que considera anacrônico e alheio aos limites ecológicos.",["d-psol-prog"]],
       ["e","Coloca o socialismo como horizonte estratégico (democrático, ecossocialista, internacionalista) e reivindica independência política de classe, sem excluir unidade ampla.",["d-psol-prog"]],
       ["e","Apoiou Lula desde o 1º turno de 2022 e defende mobilização social permanente pelo programa eleito, com crítica ao marco fiscal.",["d-psol-8c","d-psol-dn23"]],
       ["a","O programa de 2004 critica as experiências do stalinismo e as capitulações da “3ª via” social-democrata.",["d-psol-2004"]]
@@ -110,6 +135,7 @@
       ["a","Vê a contradição principal entre capital e trabalho, uma burguesia particularmente reacionária e herança escravocrata e patriarcal que soma opressão de raça e gênero à exploração.",["d-up-2019"]],
       ["a","Descreve o acordo Mercosul–UE como aprofundamento da dependência frente ao imperialismo europeu e fala em desindustrialização.",["d-up-3c"]],
       ["e","Disputa eleições como tribuna, reconhece todas as formas de luta e prevê controle social dos monopólios, nacionalização dos bancos e reforma agrária popular.",["d-up-2019","d-up-prog"]],
+      ["e","A epígrafe do programa de 2026, sobre a organização da classe operária em partido, cita Marx e Engels (conferido por Filipe).",["d-up-prog"]],
       ["e","Faz oposição de esquerda ao governo Lula, que acusa de conciliação de classes, e se opõe à extrema-direita; em 2026 chamou a derrotar o fascismo.",["d-up-dn26"]]
     ],
     "g-pcr": [
@@ -179,6 +205,8 @@
     ["p-lenin","g-pcdob","infl","Cita Lenin sobre desenvolvimento desigual e declara-se marxista-leninista. Fonte: 16º Congresso (primária)."],
     ["p-lenin","g-pcbr","infl","Reivindica Lenin e o marxismo-leninismo, e o partido de vanguarda. Fonte: XVII Congresso (primária)."],
     ["p-lenin","g-pcr","infl","Reivindica o marxismo-leninismo e a ditadura do proletariado. Fonte: teses do III Congresso (primária)."],
+    ["p-marx","g-up","infl","A epígrafe do programa de 2026 cita Marx e Engels. Fonte: programa da UP (conferido por Filipe)."],
+    ["p-engels","g-up","infl","A epígrafe do programa de 2026 cita Marx e Engels. Fonte: programa da UP (conferido por Filipe)."],
     ["p-trot","g-pstu","infl","Reivindica Trotsky, a revolução permanente e o Programa de Transição. Fonte: PSTU (primária)."],
 
     /* novos conceitos: quem trata */
