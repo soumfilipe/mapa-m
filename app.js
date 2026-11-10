@@ -17,6 +17,8 @@
   const EIX = D.eixos || {};
   const nodes = D.nodes.map(([id, type, label, year, summary, br]) => ({
     id, type, label, year, summary, br: !!br, eixo: EIX[id] || "", partido: (D.partidos||{})[id] || null, fonte: (D.fontes||{})[id] || null,
+    pos: (D.posicoes||{})[id] || null,
+    docs: Object.entries(D.documentos||{}).filter(([k,v]) => v.partido === id),
     x: 0, y: 0, vx: 0, vy: 0, deg: 0, visible: true, fixed: false
   }));
   const byId = new Map(nodes.map((n) => [n.id, n]));
@@ -376,6 +378,39 @@
   }
 
   const kindOrder = ["critica", "complementa", "fundamenta", "infl", "trata", "contexto", "autor"];
+  /* posições e documentos de um partido */
+  const ST = { lido: "lido", parcial: "lido em parte", coletar: "a coletar" };
+  const NV = { primario: "fonte primária", tendencia: "corrente interna", secundario: "segunda mão" };
+  function posBlock(n) {
+    if (!n.pos && !(n.docs && n.docs.length)) return "";
+    const docs = D.documentos || {};
+    let h = "";
+    if (n.pos) {
+      h += "<h3>O que o documento afirma</h3><ul class=\"rel\">";
+      n.pos.forEach(([ex, txt, ids, marca]) => {
+        const refs = (ids || []).map((id, i) => {
+          const d = docs[id]; if (!d) return "";
+          return /^https?:/.test(d.url)
+            ? "<a href=\"" + esc(d.url) + "\" target=\"_blank\" rel=\"noopener\" title=\"" + esc(d.titulo) + "\">[" + (i + 1) + "]</a>"
+            : "<span title=\"" + esc(d.titulo) + "\">[" + (i + 1) + "]</span>";
+        }).join(" ");
+        h += "<li><span class=\"k\">" + (ex === "a" ? "● análise" : "◆ estratégia") + "</span>" + esc(txt) +
+          (marca ? " <span class=\"pill\">" + esc(marca) + "</span>" : "") + " " + refs + "</li>";
+      });
+      h += "</ul>";
+    }
+    if (n.docs && n.docs.length) {
+      h += "<h3>Documentos</h3><ul class=\"rel\">";
+      n.docs.forEach(([, d]) => {
+        const t = /^https?:/.test(d.url) ? "<a href=\"" + esc(d.url) + "\" target=\"_blank\" rel=\"noopener\">" + esc(d.titulo) + "</a>" : esc(d.titulo);
+        h += "<li>" + t + " <span class=\"note\">" + esc(d.data) + " · " + esc(d.tipo) + " · " + esc(NV[d.nivel]) +
+          " · <span class=\"st " + d.status + "\">" + esc(ST[d.status]) + "</span>" + (/^https?:/.test(d.url) ? "" : " · " + esc(d.url)) + "</span></li>";
+      });
+      h += "</ul>";
+    }
+    return h;
+  }
+
   function renderDetail(n) {
     const box = $("#tab-detalhe");
     if (!n) {
@@ -403,7 +438,7 @@
       "<h2>" + esc(n.label) + "</h2><p class=\"lead\">" + esc(n.summary) + "</p>" +
       (n.eixo ? "<p class=\"eixonote\"><b>Eixo: " + esc(D.eixoInfo[n.eixo].label) + ".</b> " + esc(D.eixoInfo[n.eixo].desc) + "</p>" : "") +
       (n.partido ? "<p class=\"eixonote\"><b>Partido e teoria.</b> " + esc(n.partido.nota) + "</p>" : "") +
-      (n.fonte ? "<p class=\"eixonote\"><b>Fonte.</b> <a href=\"" + esc(n.fonte[1]) + "\" target=\"_blank\" rel=\"noopener\">" + esc(n.fonte[0]) + "</a></p>" : "");
+      (n.fonte ? "<p class=\"eixonote\"><b>Fonte.</b> <a href=\"" + esc(n.fonte[1]) + "\" target=\"_blank\" rel=\"noopener\">" + esc(n.fonte[0]) + "</a></p>" : "") + posBlock(n);
     const titles = { critica: "Discordâncias e críticas", complementa: "Complementos e atualizações", fundamenta: "Da análise à estratégia", infl: "Influências", trata: "Conceitos e obras", contexto: "Contexto histórico", autor: "Autoria" };
     kindOrder.forEach((k) => {
       const list = groups[k]; if (!list) return;
@@ -456,6 +491,14 @@
     });
   }
 
+  function pendencias() {
+    const list = Object.entries(D.documentos || {}).filter(([, d]) => d.status !== "lido");
+    if (!list.length) return "";
+    const nome = (id) => (byId.get(id) || { label: id }).label;
+    return "<h3>Documentos a coletar</h3><ul>" + list.map(([, d]) =>
+      "<li>" + esc(nome(d.partido)) + ": " + esc(d.titulo) + " (" + esc(ST[d.status]) + ")</li>").join("") + "</ul>";
+  }
+
   /* sobre */
   function renderAbout() {
     let leg = "<div class=\"legend\">";
@@ -479,6 +522,8 @@
       "<p><b>Aviso.</b> Os resumos são apoio de estudo. Datas, atribuições e interpretações precisam ser conferidas nas fontes primárias antes de uso público. Relações marcadas como “leitura interpretativa” são hipóteses, não consensos.</p>" +
       "<p><b>Origens das críticas.</b> Hegel, Feuerbach, Smith, Ricardo, os utópicos, Proudhon e Lassalle aparecem como alvos ou fontes de Marx. O debate <i>De onde vêm as críticas de Marx?</i> reúne o conjunto.</p>" +
       "<p><b>Partidos e correntes.</b> Muitos partidos brasileiros são de correntes ou de frente, e a teoria marxista costuma estar em alas, e não no partido inteiro. O chip <i>Destacar partidos</i> mostra o conjunto. As classificações vêm de fontes públicas e das autodescrições dos grupos; confira antes de usar.</p>" +
+      "<p><b>Documentos oficiais.</b> No painel de cada partido, “O que o documento afirma” traz paráfrases curtas separadas em análise e estratégia, com o documento de origem. Polêmicas entre partidos e textos de correntes internas vêm marcados. Resultados eleitorais ficam fora até a conferência no TSE.</p>" +
+      pendencias() +
       "<p><b>Para ler os textos.</b> O acervo em português do <a href=\"https://www.marxists.org/portugues/\" target=\"_blank\" rel=\"noopener\">Marxists Internet Archive</a> reúne muitas das obras citadas; edições recentes saem por editoras como Boitempo e Expressão Popular.</p>" +
       "<p><b>Para ampliar.</b> Edite <code>data.js</code> (núcleo leninista) e <code>data-marx.js</code> (Marx, Engels e a classificação por eixos): acrescente nós e relações e o mapa se reorganiza sozinho.</p></div>";
   }

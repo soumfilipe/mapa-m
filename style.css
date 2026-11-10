@@ -143,3 +143,10 @@ h3{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute
 .eixonote{font-size:13px;line-height:1.5;color:var(--muted);border-left:2px solid var(--accent);padding-left:10px;margin:0 0 12px}
 .rel .k.fundamenta{color:#ffb86b}
 .rel .k.complementa{color:#8fd3ff}
+
+/* ---- documentos ---- */
+.st{font-weight:600}
+.st.lido{color:#78dccb}
+.st.parcial{color:#ffb86b}
+.st.coletar{color:#ff9a9a}
+.rel li a[title]{font-weight:600;margin-left:2px}

@@ -1,4 +1,4 @@
-# Mapa do Marxismo
+# Mapa do Marxismo - História e recorte brasileiro
 
 Mapa interativo de conceitos, obras, autores, movimentos e eventos ligados a Marx, Engels e à teoria leninista da revolução, com as discordâncias entre correntes e a leitura para o Brasil.
 
