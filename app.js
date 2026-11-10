@@ -30,7 +30,7 @@
 
   const state = {
     mode: "rede", hiddenTypes: new Set(), hiddenKinds: new Set(), hiddenEixos: new Set(),
-    br: false, marx: false, part: false, sel: null, debate: null, q: ""
+    br: false, marx: false, part: false, cor: false, sel: null, debate: null, q: ""
   };
 
   /* ---------------- posições iniciais ---------------- */
@@ -308,9 +308,10 @@
       const q = norm(state.q);
       fs = new Set(nodes.filter((n) => norm(n.label + " " + n.summary).includes(q)).map((n) => n.id));
       mode = "set";
-    } else if (state.br || state.marx || state.part) {
+    } else if (state.br || state.marx || state.part || state.cor) {
       fs = new Set();
       if (state.br) nodes.forEach((n) => { if (n.br) fs.add(n.id); });
+      if (state.cor) (D.correnteIds || []).forEach((id) => fs.add(id));
       if (state.part) (D.partidoIds || []).forEach((id) => fs.add(id));
       if (state.marx) (D.marxIds || []).forEach((id) => fs.add(id));
       mode = "set";
@@ -516,6 +517,9 @@
     const s2 = document.createElement("span"); s2.className = "sep"; bar.appendChild(s2);
     mk("br", "Destacar Marx e Engels", (b) => {
       state.marx = !state.marx; b.classList.toggle("on", state.marx); applyFocus();
+    });
+    mk("br", "Destacar correntes", (b) => {
+      state.cor = !state.cor; b.classList.toggle("on", state.cor); applyFocus();
     });
     mk("br", "Destacar partidos", (b) => {
       state.part = !state.part; b.classList.toggle("on", state.part); applyFocus();

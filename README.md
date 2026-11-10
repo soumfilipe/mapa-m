@@ -1,4 +1,4 @@
-# Mapa do Leninismo
+# Mapa do Marxismo
 
 Mapa interativo de conceitos, obras, autores, movimentos e eventos ligados a Marx, Engels e à teoria leninista da revolução, com as discordâncias entre correntes e a leitura para o Brasil.
 
