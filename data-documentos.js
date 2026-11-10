@@ -104,6 +104,14 @@
   up("d-psol-prog", { obs: "Filipe confirmou o uso de superexploração e as críticas à ortodoxia e ao desenvolvimentismo." });
   up("d-psol-resol", { obs: "A ferramenta não abriu a página; o link informado não ajudou." });
 
+  /* ---------- textos integrais enviados por Filipe em Google Docs (nov./2026) ---------- */
+  const GD = (id) => U + "docs.google.com/document/d/" + id + "/edit";
+  up("d-pt-8c", { status: "lido", obs: "Texto integral lido (cópia em Google Docs enviada por Filipe): " + GD("1N_DlMShpmbe7UWWra6cGlcpyPEAXvtstLWfn8Ov55JY") });
+  up("d-pstu-plano", { status: "lido", data: "2023", titulo: "Editorial sobre o Arcabouço Fiscal e a Reforma Tributária (“Um programa da classe trabalhadora”)",
+    obs: "Enviado por Filipe como “Teses do PSTU” (" + GD("1bSiNh0gGPeSnX9GNqPW9zN5QdgXfKO2zwz2mPqeMD6Y") + "). O conteúdo é um editorial de meados de 2023 sobre o Arcabouço Fiscal e a Reforma Tributária, não as teses programáticas, que seguem por coletar." });
+  up("d-pco-trot", { status: "lido", titulo: "O que é o Trotskismo e por que o reivindicamos",
+    obs: "Texto integral lido (cópia em Google Docs enviada por Filipe): " + GD("1bU6-KTSJpgkBCe-EqqsD5mQanK6XH4nW6PcUq0W25uo") + ". A seção “O Trotskismo no Brasil” parece não existir mais." });
+
   /* ---------- 2) o que cada partido afirma (paráfrase) ----------
      [eixo, texto, [ids de documentos], marca opcional] */
   M.posicoes = {
@@ -124,7 +132,12 @@
     "g-pt": [
       ["a","Diz que a crise do capitalismo é estrutural e multidimensional e fala em superar a dependência externa por soberania alimentar, energética, produtiva, digital e militar.",["d-pt-17enc"]],
       ["e","Defende frente ampla, reformas estruturais e “socialismo petista” radicalmente democrático e sustentável, construído como nova hegemonia na sociedade e no Estado.",["d-pt-17enc","d-pt-dn25"]],
-      ["e","Segundo a chamada do 8º Congresso, o manifesto propõe sete reformas, um novo pacto de desenvolvimento e concertação com a classe trabalhadora e com empresários “comprometidos com a nação”. Texto integral ainda por coletar.",["d-pt-8c"],"parcial"]
+      ["a","O manifesto do 8º Congresso fala em “mudança de época”: crise do capitalismo neoliberal, crise de 2008 resolvida socializando prejuízos, acumulação baseada na captura de renda e no capital financeiro, novas oligarquias tecnológicas e declínio relativo da hegemonia dos EUA, que abre espaço para o Sul Global e os BRICS.",["d-pt-8c"]],
+      ["a","Vê a plataformização como reorganização da produção que fragmenta a classe trabalhadora e sujeita o trabalho a lógicas algorítmicas; atribui o avanço da extrema-direita à frustração social sem transformação material.",["d-pt-8c"]],
+      ["e","Estratégia de bloco democrático-popular, disputa de hegemonia e acumulação de forças; propõe concertação social e um novo pacto de desenvolvimento entre a classe trabalhadora, os movimentos e o empresariado “comprometido com a nação”, para quebrar a hegemonia do rentismo.",["d-pt-8c"]],
+      ["e","Três eixos (Estado indutor, crescimento com distribuição, transição produtiva e ambiental) e sete reformas: política e eleitoral, tributária, tecnológica, do Judiciário, administrativa, agrária e da comunicação. O socialismo democrático aparece como horizonte programático; o fim imediato da escala 6×1 e a soberania sobre terras raras são bandeiras centrais.",["d-pt-8c"]],
+      ["e","Tem a reeleição de Lula em 2026 como eixo da tática; boa parte do texto é balanço de indicadores do governo. Na organização, pede mandatos submetidos ao partido, núcleos de base como instância, limite de mandatos internos e no mínimo 50% de mulheres.",["d-pt-8c"]],
+      ["a","O manifesto não cita Marx nem Gramsci, mas o vocabulário de hegemonia, bloco e acumulação de forças é de matriz gramsciana.",["d-pt-8c"],"leitura interpretativa"]
     ],
     "g-ds": [
       ["a","Descreve uma crise da ordem mundial neoliberal, com o governo Trump em intervenções neocoloniais na América Latina, e uma extrema direita neoliberal organizada em torno do bolsonarismo como “partido digital”, apoiado em redes e grande mídia. Fala em dupla crise do capitalismo neoliberal e da hegemonia dos EUA, com formas renovadas de fascismo.",["d-ds-conf"],"tendência"],
@@ -169,12 +182,22 @@
       ["a","Define o governo Lula como governo capitalista a serviço do mercado financeiro.",["d-pstu-26"]],
       ["e","Declara a revolução permanente como alicerce do programa, com independência de classe, e rejeita frente ampla com a burguesia em favor de um polo socialista e revolucionário.",["d-pstu-perm","d-pstu-frente"]],
       ["e","No 2º turno de 2026, voto crítico em Lula sem apoio político ao governo.",["d-pstu-26"]],
-      ["a","Critica o MES por reivindicar a revolução permanente e, segundo o PSTU, praticar “etapas stalinistas”, e o PSOL pela estratégia reformista.",["d-pstu-perm","d-pstu-frente"]]
+      ["a","Critica o MES por reivindicar a revolução permanente e, segundo o PSTU, praticar “etapas stalinistas”, e o PSOL pela estratégia reformista.",["d-pstu-perm","d-pstu-frente"]],
+      ["a","Em 2023, diz que toda a política econômica de Lula serve a banqueiros, agronegócio, multinacionais e grandes empresas, em acordo com Lira e o Centrão: o Arcabouço Fiscal é arrocho e a Reforma Tributária mantém um sistema em que só quem trabalha paga imposto. Vê o agronegócio desnacionalizado, com remessas de lucro maiores que as exportações.",["d-pstu-plano"]],
+      ["a","Fala em retrocesso do país à condição de semicolônia do imperialismo e liga a superexploração e a perda de direitos à entrega do país.",["d-pstu-plano"]],
+      ["e","Programa da classe trabalhadora: “Arcabouço Social” em vez de fiscal, suspensão do pagamento da dívida aos banqueiros, imposto de renda fortemente progressivo, expropriação das 150 maiores empresas, nacionalização do agronegócio, proibição das remessas de lucros, reestatização, redução da jornada sem redução de salário, revogação das reformas trabalhista e previdenciária e salário mínimo do Dieese.",["d-pstu-plano"]],
+      ["e","Chama uma oposição de esquerda ao governo e um governo socialista dos trabalhadores, “sem capitalistas”; destaca a CSP-Conlutas na mobilização contra o Arcabouço e o Marco Temporal.",["d-pstu-plano"]]
     ],
     "g-pco": [
       ["a","Vê o regime de 1988 em crise, com a burguesia recorrendo a meios autoritários, e o terceiro governo Lula como fracasso da frente ampla.",["d-pco-prog","d-pco-conf"]],
       ["e","Trata eleições como terreno secundário e tribuna do governo operário; em 2026 decidiu pelo voto nulo no 2º turno.",["d-pco-conf","d-pco-prog"]],
-      ["a","Seus artigos acusam PSTU e PCBR de oportunismo por apoiarem, criticamente, Lula ou a frente ampla (texto do órgão do próprio partido).",["d-pco-dco"],"polêmica de partido"]
+      ["a","Seus artigos acusam PSTU e PCBR de oportunismo por apoiarem, criticamente, Lula ou a frente ampla (texto do órgão do próprio partido).",["d-pco-dco"],"polêmica de partido"],
+      ["a","Reivindica Marx, Engels, Lenin e Trotsky e trata as inovações de Lenin e Trotsky como atualização menor do marxismo: “ser trotskista é ser o comunista nos dias de hoje”.",["d-pco-trot"]],
+      ["a","Completa a teoria do imperialismo de Lenin com o desenvolvimento desigual e combinado: no Brasil, um proletariado forte nos grandes centros e uma burguesia fraca, apoiada no atraso, o que facilita a revolução e justifica a revolução permanente (tarefas capitalistas e socialistas de uma vez).",["d-pco-trot"]],
+      ["a","Diz que o socialismo exige capacidade produtiva superior à do capitalismo e só se completa em escala internacional; a URSS nunca chegou ao socialismo e ficou num estado transitório, com a administração tomada por uma burocracia. O governo de Stalin foi uma ditadura contra a ditadura do proletariado.",["d-pco-trot"]],
+      ["e","Defende incondicionalmente a ditadura do proletariado onde exista (URSS, Cuba, Coreia), sem defender a política dos governos; distingue o terror bolchevique, contra a classe dominante, do terror de Stalin, contra o povo e o partido.",["d-pco-trot"]],
+      ["e","Recusa participar de governos burgueses, mesmo de esquerda, e qualquer frente ampla ou popular; propõe frente única de ação contra o fascismo (“marchar separados, atacar juntos”), defesa incondicional dos direitos democráticos, comitês de autodefesa e armamento do povo, e partido de centralismo democrático (“democracia na decisão, unidade total de ação”).",["d-pco-trot"]],
+      ["a","Diz que a esquerda “trotskista” do Brasil não é trotskista, mas de classe média, identitária e em vários temas pró-imperialista, e que a IV Internacional se desmontou após a morte de Trotsky. O texto não nomeia os partidos.",["d-pco-trot"],"polêmica de partido"]
     ]
   };
 
@@ -182,7 +205,7 @@
   const NOVOS = [
     ["c-concilia","concept","Conciliação de classes (caracterização do governo Lula)",2023,"Termo de PCB, UP, PSTU e outros para o governo Lula: acordo com setores do capital e da direita, em prejuízo da independência da classe trabalhadora. PCBR fala em “social-liberalismo”. PT, PCdoB e a maioria do PSOL rejeitam a leitura e tratam a reeleição como tarefa central.",1],
     ["c-frenteamp","concept","Frente ampla × frente anticapitalista",2022,"Dois modelos de aliança no Brasil atual. A frente ampla (PT, PCdoB, maioria do PSOL, e voto em Lula no 2º turno de 2026 também por PCB, PCBR e PSTU) vê a extrema-direita como inimigo central. A frente anticapitalista (PCB, PCBR, PSTU, UP) rejeita acordo com a burguesia e defende polo socialista.",1],
-    ["c-soberania","concept","Soberania nacional e dependência",2025,"PT, PCdoB, PSOL e UP falam em dependência e neocolonialismo, mas divergem sobre a saída: desenvolvimento soberano com aliança de setores nacionais (PT, PCdoB) ou ruptura socialista (UP, PCB, PCBR). O PSTU fala em semicolônia (fonte secundária).",1],
+    ["c-soberania","concept","Soberania nacional e dependência",2025,"PT, PCdoB, PSOL e UP falam em dependência e neocolonialismo, mas divergem sobre a saída: desenvolvimento soberano com aliança de setores nacionais (PT, PCdoB) ou ruptura socialista (UP, PCB, PCBR). O PSTU fala em semicolônia do imperialismo (editorial de 2023, primária).",1],
     ["c-china","concept","China socialista e multipolaridade",2025,"O PCdoB chama a China de socialista e vê declínio relativo dos EUA; o PT fala em novo padrão Estado–mercado e ordem multipolar. A UP critica a dependência também em relação à China (ainda por documentar em fonte primária).",1],
     ["c-fascismo","concept","Extrema-direita e fascismo",2024,"PCB trata o fascismo como tropa de choque do capital; PT, PCdoB e PSOL tratam a extrema-direita como inimigo central de uma frente democrática; UP chama a derrotar o fascismo.",1],
     ["c-governoop","concept","Governo operário / governo dos trabalhadores",2014,"Tese do PCO (e, em outra formulação, do PCR: governo revolucionário dos trabalhadores) de um governo que sai da luta e rompe com a burguesia, usando eleições como tribuna.",1],
@@ -233,7 +256,21 @@
     ["g-psol","c-ecosoc","trata"],["g-pt","c-ecosoc","trata"],
     ["g-pcdob","c-etapa","trata","O Novo Projeto Nacional de Desenvolvimento passa por democracia popular antes do socialismo. Leitura interpretativa."],
     ["g-pcbr","c-etapa","critica","Supera o etapismo do velho PCB. Fonte: XVII Congresso (primária)."],
-    ["g-pstu","c-perm","trata"]
+    ["g-pstu","c-perm","trata"],
+
+    /* textos integrais de PT, PSTU e PCO (nov./2026) */
+    ["g-pt","c-hegem","trata","Bloco democrático-popular, disputa de hegemonia e acumulação de forças. Fonte: manifesto do 8º Congresso (primária); a matriz gramsciana é leitura interpretativa."],
+    ["g-pt","c-prec","trata","A plataformização fragmenta a classe trabalhadora. Fonte: manifesto do 8º Congresso (primária)."],
+    ["g-pstu","c-soberania","trata","Fala em semicolônia do imperialismo e defende nacionalizar o agronegócio e proibir remessas de lucros. Fonte: editorial de 2023 (primária)."],
+    ["g-pstu","c-governoop","trata","Governo socialista dos trabalhadores, “sem capitalistas”. Fonte: editorial de 2023 (primária)."],
+    ["p-trot","g-pco","infl","Reivindica Trotsky e se diz seu herdeiro legítimo. Fonte: O que é o Trotskismo (primária)."],
+    ["p-lenin","g-pco","infl","Reivindica a teoria do imperialismo de Lenin e o centralismo democrático. Fonte: O que é o Trotskismo (primária)."],
+    ["g-pco","g-estal","critica","Chama o estalinismo de contrarrevolucionário e anticomunista. Fonte: O que é o Trotskismo (primária)."],
+    ["g-pco","g-quarta","critica","Diz que a IV Internacional se desmontou após a morte de Trotsky e o que sobrou não se parece com ele. Fonte: O que é o Trotskismo (polêmica de partido)."],
+    ["g-pco","c-perm","trata"],["g-pco","c-imp","trata"],["g-pco","c-burocracia","trata"],["g-pco","c-dit","trata"],["g-pco","c-cent","trata"],
+    ["g-pco","c-frente","trata","Frente única de ação contra o fascismo, nunca unidade de programa com a esquerda capitalista. Fonte: O que é o Trotskismo (primária)."],
+    ["g-pco","c-frenteamp","critica","Opõe-se a frentes amplas, populares ou a qualquer colaboração de classes. Fonte: O que é o Trotskismo (primária)."],
+    ["g-pco","c-fascismo","trata","Autodefesa das massas e armamento do povo contra a direita e o fascismo. Fonte: O que é o Trotskismo (primária)."]
   ];
   E.forEach((e) => M.edges.push(e));
 
@@ -244,12 +281,12 @@
       pergunta: "Conciliação de classes ou frente necessária contra a extrema-direita? Os documentos mostram dois blocos, e posições concretas que se cruzam no 2º turno de 2026.",
       nos: ["c-concilia","c-frenteamp","c-fascismo","g-pt","g-pcdob","g-psol","g-pcb","g-pcbr","g-up","g-pstu","g-pco"],
       posicoes: [
-        { quem: "PT e PCdoB", ids: ["g-pt","g-pcdob"], texto: "A reeleição de Lula e a derrota da extrema-direita são a tarefa central; as reformas estruturais e o desenvolvimento soberano preparam o caminho ao socialismo." },
+        { quem: "PT e PCdoB", ids: ["g-pt","g-pcdob"], texto: "A reeleição de Lula e a derrota da extrema-direita são a tarefa central; as reformas estruturais e o desenvolvimento soberano preparam o caminho ao socialismo. O manifesto do PT propõe concertação com o empresariado “comprometido com a nação”." },
         { quem: "PSOL", ids: ["g-psol"], texto: "Apoiou Lula desde o 1º turno de 2022 e cobra mobilização e crítica pontual, como ao marco fiscal. O MES propõe independência com defesa do governo contra a extrema-direita." },
         { quem: "PCB e PCBR", ids: ["g-pcb","g-pcbr"], texto: "Chamam o governo de conciliação de classes (PCB) ou social-liberal (PCBR) e defendem revolução sem etapas, mas chamaram apoio crítico ou voto em Lula no 2º turno de 2026." },
         { quem: "UP e PCR", ids: ["g-up","g-pcr"], texto: "Oposição de esquerda ao governo, que acusam de conciliação, e luta contra o fascismo." },
-        { quem: "PSTU", ids: ["g-pstu"], texto: "Governo capitalista; candidatura própria no 1º turno e voto crítico em Lula no 2º, sem apoio político." },
-        { quem: "PCO", ids: ["g-pco"], texto: "Frente ampla fracassou; voto nulo no 2º turno e crítica a quem apoiou Lula." },
+        { quem: "PSTU", ids: ["g-pstu"], texto: "Governo capitalista: em 2023 chamou a derrotar a política econômica do governo e propôs um programa de expropriações. Candidatura própria no 1º turno de 2026 e voto crítico em Lula no 2º, sem apoio político." },
+        { quem: "PCO", ids: ["g-pco"], texto: "Frente ampla fracassou; não participar de governos burgueses, nem de esquerda; voto nulo no 2º turno e crítica a quem apoiou Lula." },
         { quem: "Ponto de método", ids: ["c-frenteamp"], texto: "Os rótulos do mapa vêm dos documentos de cada partido. As polêmicas entre partidos estão marcadas como tal, e resultados eleitorais ficam fora até a conferência no TSE." }
       ]
     },
@@ -263,7 +300,7 @@
         { quem: "PCB e PCBR", ids: ["g-pcb","g-pcbr"], texto: "Revolução socialista sem etapas; autocrítica da estratégia nacional e democrática do PCB de 1960." },
         { quem: "PCR e UP", ids: ["g-pcr","g-up"], texto: "Revolução socialista e governo revolucionário dos trabalhadores, com a UP como instrumento legal de massas." },
         { quem: "PSTU", ids: ["g-pstu"], texto: "Revolução permanente: tarefas democráticas e anti-imperialistas dentro da revolução socialista." },
-        { quem: "PCO", ids: ["g-pco"], texto: "Governo operário; eleições como tribuna." },
+        { quem: "PCO", ids: ["g-pco"], texto: "Revolução permanente apoiada no desenvolvimento desigual e combinado (proletariado forte nos centros, burguesia fraca); governo operário; eleições como tribuna." },
         { quem: "PT e PSOL", ids: ["g-pt","g-psol"], texto: "Socialismo como horizonte: radicalmente democrático e sustentável (PT) ou ecossocialista e democrático (PSOL), por reformas e acúmulo de forças." }
       ]
     }
