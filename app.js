@@ -16,7 +16,7 @@
   /* ---------------- dados ---------------- */
   const EIX = D.eixos || {};
   const nodes = D.nodes.map(([id, type, label, year, summary, br]) => ({
-    id, type, label, year, summary, br: !!br, eixo: EIX[id] || "", partido: (D.partidos||{})[id] || null,
+    id, type, label, year, summary, br: !!br, eixo: EIX[id] || "", partido: (D.partidos||{})[id] || null, fonte: (D.fontes||{})[id] || null,
     x: 0, y: 0, vx: 0, vy: 0, deg: 0, visible: true, fixed: false
   }));
   const byId = new Map(nodes.map((n) => [n.id, n]));
@@ -401,7 +401,8 @@
       (n.partido ? "<span class=\"pill eixo\">" + esc(D.formasPartido[n.partido.forma]) + "</span>" : "") +
       "<h2>" + esc(n.label) + "</h2><p class=\"lead\">" + esc(n.summary) + "</p>" +
       (n.eixo ? "<p class=\"eixonote\"><b>Eixo: " + esc(D.eixoInfo[n.eixo].label) + ".</b> " + esc(D.eixoInfo[n.eixo].desc) + "</p>" : "") +
-      (n.partido ? "<p class=\"eixonote\"><b>Partido e teoria.</b> " + esc(n.partido.nota) + "</p>" : "");
+      (n.partido ? "<p class=\"eixonote\"><b>Partido e teoria.</b> " + esc(n.partido.nota) + "</p>" : "") +
+      (n.fonte ? "<p class=\"eixonote\"><b>Fonte.</b> <a href=\"" + esc(n.fonte[1]) + "\" target=\"_blank\" rel=\"noopener\">" + esc(n.fonte[0]) + "</a></p>" : "");
     const titles = { critica: "Discordâncias e críticas", complementa: "Complementos e atualizações", fundamenta: "Da análise à estratégia", infl: "Influências", trata: "Conceitos e obras", contexto: "Contexto histórico", autor: "Autoria" };
     kindOrder.forEach((k) => {
       const list = groups[k]; if (!list) return;
