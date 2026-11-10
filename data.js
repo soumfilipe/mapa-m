@@ -19,8 +19,8 @@ const MAPA = {
   },
 
   kinds: {
-    autor:    { chip: "Autoria",   label: "escreveu",              rev: "escrito por",          color: "#6f6a85", dash: "" },
-    trata:    { chip: "Trata de",  label: "trata de",              rev: "tratado em",           color: "#8d87ac", dash: "" },
+    autor:    { chip: "Autoria",   label: "escreveu",              rev: "escrito por",          color: "#e6c36a", dash: "" },
+    trata:    { chip: "Trata de",  label: "trata de",              rev: "tratado em",           color: "#8d87ac", dash: "2 4" },
     infl:     { chip: "Influência",label: "influencia",            rev: "influenciado por",     color: "#c4a7ff", dash: "" },
     critica:  { chip: "Crítica",   label: "critica / discorda de", rev: "criticado por",        color: "#ff8f8f", dash: "7 4" },
     contexto: { chip: "Contexto",  label: "é contexto de",         rev: "tem como contexto",    color: "#6fd6c4", dash: "2 3" }
